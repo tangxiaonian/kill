@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.tang.kill.mapper.TbKillShopMapper">
+
+  <resultMap id="BaseResultMap" type="com.tang.kill.domain.TbKillShop">
+    <!--@mbg.generated generated on Fri Mar 20 22:44:20 CST 2020.-->
+    <id column="k_id" jdbcType="INTEGER" property="kId" />
+    <result column="s_id" jdbcType="INTEGER" property="sId" />
+    <result column="counts" jdbcType="INTEGER" property="counts" />
+    <result column="k_start_time" jdbcType="TIMESTAMP" property="kStartTime" />
+    <result column="k_end_time" jdbcType="TIMESTAMP" property="kEndTime" />
+    <result column="k_is_active" jdbcType="INTEGER" property="kIsActive" />
+  </resultMap>
+
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Fri Mar 20 22:44:20 CST 2020.-->
+    k_id, s_id, counts, k_start_time, k_end_time, k_is_active
+  </sql>
+
+
+<!-- 获取可以被秒杀的商品 -->
+  <select id="getKillShop" resultType="com.tang.kill.dto.TbKillShop">
+
+        SELECT
+         ts.*,
+         (
+            CASE
+            when NOW() BETWEEN tks.k_start_time and tks.k_end_time AND tks.counts > 0 then 1
+            ELSE 0
+            end
+        ) as is_can_kill
+        FROM tb_shop ts INNER JOIN tb_kill_shop tks on ts.id = tks.s_id
+        WHERE ts.isactive = 1 and tks.counts > 0
+
+
+  </select>
+
+</mapper>

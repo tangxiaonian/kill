@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tang.kill.mapper.TbShopMapper">
+  <resultMap id="BaseResultMap" type="com.tang.kill.domain.TbShop">
+    <!--@mbg.generated generated on Fri Mar 20 22:43:47 CST 2020.-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="isbn" jdbcType="VARCHAR" property="isbn" />
+    <result column="counts" jdbcType="VARCHAR" property="counts" />
+    <result column="buyTime" jdbcType="TIMESTAMP" property="buytime" />
+    <result column="isactive" jdbcType="VARCHAR" property="isactive" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated generated on Fri Mar 20 22:43:47 CST 2020.-->
+    id, `name`, isbn, counts, buyTime, isactive
+  </sql>
+</mapper>

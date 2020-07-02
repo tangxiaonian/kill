@@ -16,7 +16,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <mysql.version>8.0.15</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <mapper-spring-boot>2.1.5</mapper-spring-boot>
         <lombok.version>1.16.20</lombok.version>
     </properties>
